@@ -222,6 +222,13 @@ plus_icon.addEventListener("click", () => {
             "justify-center"
           );
           actions_completed_div.appendChild(task_edited_icon);
+          task_completed_icon.addEventListener("click", () => {
+            task_completed_icon.classList.add("bg-green-900");
+          });
+          task_deleted_icon.addEventListener("click", () => {
+            task_deleted_icon.classList.add("bg-red-900");
+            created_task_div.remove();
+          });
         }
       }
     });

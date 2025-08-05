@@ -2,6 +2,7 @@ let plus_icon = document.querySelector(".plus_icon");
 let side_panel = null;
 
 plus_icon.addEventListener("click", () => {
+  let task_index = 0;
   if (side_panel) {
     side_panel.classList.replace("translate-x-0", "translate-x-full");
     setTimeout(() => {
@@ -107,6 +108,8 @@ plus_icon.addEventListener("click", () => {
     create_button.addEventListener("click", () => {
       if (new_task.value.trim() !== "") {
         if (newtask_desc.value.trim() !== "") {
+          // let task_index = 0;
+          task_index++;
           created_task_div = document.createElement("div");
           created_task_div.classList.add(
             "w-[90%]",
@@ -124,8 +127,14 @@ plus_icon.addEventListener("click", () => {
             "flex-col",
             "gap-3",
             "justify-center",
-            "items-center"
+            "items-center",
+            task_index.toString()
           );
+          for (cls of created_task_div.classList) {
+            if (/^\d+$/.test(cls)) {
+              console.log(cls);
+            }
+          }
           side_panel.appendChild(created_task_div);
 
           new_task_created = document.createElement("input");
@@ -226,8 +235,12 @@ plus_icon.addEventListener("click", () => {
             task_completed_icon.classList.add("bg-green-900");
           });
           task_deleted_icon.addEventListener("click", () => {
-            task_deleted_icon.classList.add("bg-red-900");
-            created_task_div.remove();
+            const icon = event.currentTarget;
+
+            const taskContainer = icon.closest(
+              'div[class*="border-green-300"]'
+            );
+            taskContainer.remove();
           });
         }
       }

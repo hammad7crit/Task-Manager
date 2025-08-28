@@ -1,40 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portfolio</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
-      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    <!-- Minimal custom styles -->
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
-
-      body {
-        font-family: "Outfit";
-      }
+        body {
+            background: #1a1a1a;
+            color: #e5e7eb;
+        }
+        .glass-nav {
+            background: rgba(30, 30, 30, 0.7);
+            backdrop-filter: blur(5px);
+        }
+        .custom-button {
+            background: linear-gradient(90deg, #4b6cb7, #182848);
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            color: white;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .custom-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(75, 108, 183, 0.4);
+        }
+        .card {
+            background: rgba(40, 40, 40, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
     </style>
-  </head>
+</head>
+<body class="min-h-screen font-sans antialiased">
+    <!-- Navigation -->
+    <header class="fixed top-0 left-0 w-full z-50 glass-nav py-4">
+        <nav class="flex justify-between items-center max-w-5xl mx-auto px-4">
+            <a href="#" class="text-2xl font-bold">YourName</a>
+            <ul class="flex space-x-6">
+                <li><a href="#about" class="hover:text-blue-400 transition">About</a></li>
+                <li><a href="#skills" class="hover:text-blue-400 transition">Skills</a></li>
+                <li><a href="#projects" class="hover:text-blue-400 transition">Projects</a></li>
+                <li><a href="#contact" class="hover:text-blue-400 transition">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <body class="w-full h-[100vh] flex justify-center items-center">
-    <div class="w-[25%] h-auto flex flex-col justify-center gap-4 items-center">
-      <h1 class="font-bold text-2xl">Task Manager</h1>
-      <div class="w-full flex justify-center">
-        <button
-          class="plus_icon border p-4 bg-red-600 rounded-xl transition duration-300 hover:bg-red-700"
-        >
-          Create Tasks
-        </button>
-      </div>
-    </div>
-    <script src="main.js"></script>
-  </body>
-</html>
+    <!-- Hero Section -->
+    <section id="hero" class="h-screen flex items-center justify-center text-center">
+        <div class="max-w-3xl mx-auto px-4">
+            <h1 class="text-5xl font-bold mb-4">Hi, I'm YourName</h1>
+            <p class="text-xl mb-6">Web Developer | HTML, CSS, JavaScript, Tailwind, Python</p>
+            <a href="#projects" class="inline-block custom-button">View Projects</a>
+        </div>
+    </section>
 
-<!-- <i class="fa-solid fa-plus" style="color: #ffffff;"></i> -->
-<!-- plus_icon -->
+    <!-- About Section -->
+    <section id="about" class="py-16">
+        <div class="max-w-5xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">About Me</h2>
+            <div class="card p-6 rounded-lg max-w-2xl mx-auto">
+                <p class="text-lg">
+                    I'm a web developer passionate about crafting clean, modern websites. Skilled in HTML, CSS, JavaScript, and Tailwind CSS, I'm currently learning Python to build robust backends. Let's create something amazing together!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 bg-gray-900">
+        <div class="max-w-5xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Skills</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="card p-4 rounded-lg">
+                    <h3 class="text-xl font-semibold">HTML</h3>
+                </div>
+                <div class="card p-4 rounded-lg">
+                    <h3 class="text-xl font-semibold">CSS</h3>
+                </div>
+                <div class="card p-4 rounded-lg">
+                    <h3 class="text-xl font-semibold">JavaScript</h3>
+                </div>
+                <div class="card p-4 rounded-lg">
+                    <h3 class="text-xl font-semibold">Tailwind CSS</h3>
+                </div>
+                <div class="card p-4 rounded-lg">
+                    <h3 class="text-xl font-semibold">Python</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16">
+        <div class="max-w-5xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Projects</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card p-4 rounded-lg hover:shadow-lg transition">
+                    <h3 class="text-xl font-semibold mb-2">Task Manager</h3>
+                    <p>A web-based task manager built with JavaScript and Tailwind CSS, featuring task creation, editing, and deletion with local storage.</p>
+                </div>
+                <div class="card p-4 rounded-lg hover:shadow-lg transition">
+                    <h3 class="text-xl font-semibold mb-2">E-Commerce Site</h3>
+                    <p>A sleek online store interface with product listings and a shopping cart, styled with Tailwind CSS and animated with CSS.</p>
+                </div>
+                <div class="card p-4 rounded-lg hover:shadow-lg transition">
+                    <h3 class="text-xl font-semibold mb-2">Weather App</h3>
+                    <p>A responsive weather dashboard using JavaScript to fetch and display real-time weather data via an API.</p>
+                </div>
+                <div class="card p-4 rounded-lg hover:shadow-lg transition">
+                    <h3 class="text-xl font-semibold mb-2">Portfolio Generator</h3>
+                    <p>A static site generator built with Python, creating customizable portfolio templates for developers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-900">
+        <div class="max-w-5xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Contact Me</h2>
+            <p class="text-lg text-center">Contact at: <a href="mailto:hammadali6942@gmail.com" class="text-blue-400 hover:underline">hammadali6942@gmail.com</a></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-6 text-center bg-gray-800">
+        <p>&copy; 2025 YourName. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for smooth scrolling -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
